@@ -56,8 +56,92 @@ namespace TicTacToe
                 // If not occupied, choose center (4)
 
                 if (board[4] == TicTacToeCell.None && (Difficulty == TicTacToeDifficulty.Difficult || rnd.Next(100) > 75)) return 4;
+
+                // Check if two opposing corners are occupied by opponent
+                if ((board[0] == TicTacToeCell.User && board[8] == TicTacToeCell.User || board[2] == TicTacToeCell.User && board[6] == TicTacToeCell.User) && (Difficulty == TicTacToeDifficulty.Difficult || rnd.Next(100) > 75))
+                {
+                    // Choose a random "plus sign" cell
+                    return rnd.Next(4) switch
+                    {
+                        0 => 1,
+                        1 => 3,
+                        2 => 5,
+                        _ => 7
+                    };
+                }
+
+                // Check some other trap 
+                if ((board[1] == TicTacToeCell.User && board[8] == TicTacToeCell.User) && (Difficulty == TicTacToeDifficulty.Difficult || rnd.Next(100) > 75))
+                {
+                    return rnd.Next(2) switch
+                    {
+                        0 => 2,
+                        _ => 5
+                    };
+                }
+                else if ((board[1] == TicTacToeCell.User && board[6] == TicTacToeCell.User) && (Difficulty == TicTacToeDifficulty.Difficult || rnd.Next(100) > 75))
+                {
+                    return rnd.Next(2) switch
+                    {
+                        0 => 0,
+                        _ => 3
+                    };
+                }
+                else if ((board[7] == TicTacToeCell.User && board[0] == TicTacToeCell.User) && (Difficulty == TicTacToeDifficulty.Difficult || rnd.Next(100) > 75))
+                {
+                    return rnd.Next(2) switch
+                    {
+                        0 => 3,
+                        _ => 6
+                    };
+                }
+                else if ((board[7] == TicTacToeCell.User && board[2] == TicTacToeCell.User) && (Difficulty == TicTacToeDifficulty.Difficult || rnd.Next(100) > 75))
+                {
+                    return rnd.Next(2) switch
+                    {
+                        0 => 5,
+                        _ => 8
+                    };
+                }
+                else if ((board[5] == TicTacToeCell.User && board[0] == TicTacToeCell.User) && (Difficulty == TicTacToeDifficulty.Difficult || rnd.Next(100) > 75))
+                {
+                    return rnd.Next(2) switch
+                    {
+                        0 => 1,
+                        _ => 2
+                    };
+                }
+                else if ((board[5] == TicTacToeCell.User && board[6] == TicTacToeCell.User) && (Difficulty == TicTacToeDifficulty.Difficult || rnd.Next(100) > 75))
+                {
+                    return rnd.Next(2) switch
+                    {
+                        0 => 7,
+                        _ => 8
+                    };
+                }
+                else if ((board[3] == TicTacToeCell.User && board[2] == TicTacToeCell.User) && (Difficulty == TicTacToeDifficulty.Difficult || rnd.Next(100) > 75))
+                {
+                    return rnd.Next(2) switch
+                    {
+                        0 => 0,
+                        _ => 1
+                    };
+                }
+                else if ((board[3] == TicTacToeCell.User && board[8] == TicTacToeCell.User) && (Difficulty == TicTacToeDifficulty.Difficult || rnd.Next(100) > 75))
+                {
+                    return rnd.Next(2) switch
+                    {
+                        0 => 6,
+                        _ => 7
+                    };
+                }
             }
-            
+        
+
+
+
+
+
 
             // If we have come this far, we will select a random cell
 
